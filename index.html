@@ -188,5 +188,398 @@
         .invite-card p {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.4rem;
-            color:
-                
+            color: var(--text-dark);
+            margin-bottom: 18px;
+        }
+
+        /* Couple Grid */
+        .couple-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .person-card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 8px;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .person-photo {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold);
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        .person-card h3 {
+            color: var(--maroon);
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        .person-role {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            background: var(--maroon);
+            color: var(--cream);
+            max-width: 100%;
+            padding: 70px 20px;
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .countdown-section .section-heading {
+            color: var(--gold);
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 30px auto 0 auto;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            border-radius: 8px;
+            padding: 22px 20px;
+            min-width: 110px;
+        }
+
+        .time-box span {
+            display: block;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.3rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .time-box label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+
+        /* Events & Venue Cards */
+        .event-box {
+            background: #fff;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 10px;
+            padding: 45px 30px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        .event-title {
+            font-size: 1.7rem;
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .event-meta {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: var(--text-dark);
+            margin: 8px 0;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            margin-top: 25px;
+            background: var(--maroon);
+            color: var(--gold-light);
+            border: 1px solid var(--gold);
+            padding: 14px 34px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--maroon-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+        }
+
+        /* Photo Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.35s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon-dark);
+            color: var(--gold-light);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--gold);
+        }
+
+        footer .royal-font {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-frame">
+            <p class="subtitle">Together With Their Families</p>
+            <h1 class="couple-title">
+                Rajat Sharma
+                <span class="ampersand">&amp;</span>
+                Vaishali Shukla
+            </h1>
+            <p class="subtitle" style="margin-top: 15px;">Request the honour of your presence at their wedding</p>
+            <div class="wedding-date-banner">
+                Saturday, 28th November 2026
+            </div>
+            <a href="#invitation" class="scroll-down">Scroll to Open Invitation ↓</a>
+        </div>
+    </header>
+
+    <!-- INVITATION MESSAGE -->
+    <section id="invitation" class="reveal">
+        <p class="section-tag">Cordial Invitation</p>
+        <h2 class="section-heading">A New Beginning</h2>
+        <div class="divider"></div>
+        <div class="invite-card">
+            <p>
+                With the heavenly blessings of the Almighty and the love of our elders, we joyfully invite you and your family to grace the auspicious occasion of our wedding ceremony.
+            </p>
+            <p>
+                Your presence, warmth, and blessings will make this celebration truly memorable as we embark on a lifelong journey of love and togetherness.
+            </p>
+        </div>
+    </section>
+
+    <!-- BRIDE & GROOM -->
+    <section class="reveal">
+        <p class="section-tag">The Happy Couple</p>
+        <h2 class="section-heading">Groom &amp; Bride</h2>
+        <div class="divider"></div>
+        <div class="couple-grid">
+            <div class="person-card">
+                <!-- Replace src with groom's photo filename e.g. src="rajat.jpg" -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Rajat Sharma" class="person-photo">
+                <p class="person-role">The Groom</p>
+                <h3>Rajat Sharma</h3>
+                <p class="serif-font" style="font-size: 1.2rem; color: var(--text-muted); margin-top: 8px;">
+                    Stepping into a new chapter filled with love, laughter, and lifelong companionship.
+                </p>
+            </div>
+
+            <div class="person-card">
+                <!-- Replace src with bride's photo filename e.g. src="vaishali.jpg" -->
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Vaishali Shukla" class="person-photo">
+                <p class="person-role">The Bride</p>
+                <h3>Vaishali Shukla</h3>
+                <p class="serif-font" style="font-size: 1.2rem; color: var(--text-muted); margin-top: 8px;">
+                    Beginning a sacred bond of trust, grace, and endless happiness together.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-section">
+        <p class="section-tag" style="color: var(--gold-light);">Save The Date</p>
+        <h2 class="section-heading">Counting Down To Forever</h2>
+        <div class="divider"></div>
+        <div class="countdown-grid">
+            <div class="time-box"><span id="days">00</span><label>Days</label></div>
+            <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+            <div class="time-box"><span id="minutes">00</span><label>Minutes</label></div>
+            <div class="time-box"><span id="seconds">00</span><label>Seconds</label></div>
+        </div>
+    </section>
+
+    <!-- VENUE & CEREMONY DETAILS -->
+    <section class="reveal">
+        <p class="section-tag">When &amp; Where</p>
+        <h2 class="section-heading">Wedding Ceremony</h2>
+        <div class="divider"></div>
+        <div class="event-box">
+            <h3 class="event-title">Shubh Vivah &amp; Reception</h3>
+            <p class="event-meta"><strong>Date:</strong> Saturday, 28 November 2026</p>
+            <p class="event-meta"><strong>Time:</strong> 7:00 PM Onwards</p>
+            <p class="event-meta" style="margin-top: 15px;">
+                <strong>Venue:</strong><br>
+                Hotel Aashiya Residency
+            </p>
+            <a href="https://maps.app.goo.gl/QkHm2L75ZEp5ASNs8?g_st=ac" target="_blank" rel="noopener noreferrer" class="btn-gold">
+                📍 Open Venue in Google Maps
+            </a>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="reveal">
+        <p class="section-tag">Captured Moments</p>
+        <h2 class="section-heading">Our Gallery</h2>
+        <div class="divider"></div>
+        <div class="gallery-grid">
+            <!-- Upload photo1.jpg, photo2.jpg, photo3.jpg to your GitHub repo and update src if desired -->
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Moment 1">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Wedding Moment 2">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Wedding Moment 3">
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="royal-font">Rajat &amp; Vaishali</p>
+        <p>28 November 2026 • Hotel Aashiya Residency</p>
+        <p style="margin-top: 12px; font-size: 0.8rem; opacity: 0.8;">We look forward to celebrating with you!</p>
+    </footer>
+
+    <script>
+        // Countdown Timer to 28 Nov 2026, 7:00 PM IST
+        const targetDate = new Date("2026-11-28T19:00:00+05:30").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(d).padStart(2, '0');
+            document.getElementById("hours").innerText = String(h).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(m).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(s).padStart(2, '0');
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Scroll Reveal Effect
+        const reveals = document.querySelectorAll('.reveal');
+        function checkReveal() {
+            const triggerBottom = window.innerHeight * 0.88;
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < triggerBottom) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+        checkReveal();
+
+        // Subtle Falling Gold/Rose Petals Animation
+        const canvas = document.getElementById('petals-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const petals = Array.from({ length: 24 }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 5 + 3,
+            speedY: Math.random() * 1.1 + 0.5,
+            speedX: Math.random() * 0.8 - 0.4,
+            angle: Math.random() * Math.PI * 2,
+            spin: Math.random() * 0.03 - 0.015,
+            color: Math.random() > 0.4 ? 'rgba(212, 175, 55, 0.45)' : 'rgba(180, 40, 60, 0.35)'
+        }));
+
+        function animatePetals() {
+            ctx.clearRect(0, 0, width, height);
+            petals.forEach(p => {
+                p.y += p.speedY;
+                p.x += p.speedX + Math.sin(p.angle) * 0.4;
+                p.angle += p.spin;
+
+                if (p.y > height) {
+                    p.y = -10;
+                    p.x = Math.random() * width;
+                }
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.angle);
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, p.r, p.r * 0.6, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            });
+            requestAnimationFrame(animatePetals);
+        }
+        animatePetals();
+    </script>
+</body>
+</html>
