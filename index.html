@@ -161,7 +161,6 @@ footer .royal-font{font-size:1.5rem;color:var(--gold);margin-bottom:10px}
   </div>
 </section>
 
-
 <section class="reveal">
   <p class="section-tag">Captured Moments</p>
   <h2 class="section-heading">Our Gallery</h2>
@@ -180,15 +179,23 @@ footer .royal-font{font-size:1.5rem;color:var(--gold);margin-bottom:10px}
 </footer>
 
 <script>
-// Countdown to 28 Nov 2026, 7:00 PM IST
-const target=new Date("2026-11-28T19:00:00+05:30").getTime();
-const ids=["days","hours","minutes","seconds"].map(i=>document.getElementById(i));
-function tick(){
-  let d=Math.max(0,target-Date.now());
-  const v=[Math.floor(d/864e5),Math.floor(d%864e5/36e5),Math.floor(d%36e5/6e4),Math.floor(d%6e4/1e3)];
-  ids.forEach((el,i)=>el.textContent=String(v[i]).padStart(2,"0"));
+// Countdown to 28 Nov 2026, 12:00 PM IST
+const target = new Date("2026-11-28T12:00:00+05:30").getTime();
+const ids = ["days", "hours", "minutes", "seconds"].map(i => document.getElementById(i));
+let timer;
+function tick() {
+  const d = Math.max(0, target - Date.now());
+  const v = [
+    Math.floor(d / 864e5),
+    Math.floor((d % 864e5) / 36e5),
+    Math.floor((d % 36e5) / 6e4),
+    Math.floor((d % 6e4) / 1e3)
+  ];
+  ids.forEach((el, i) => (el.textContent = String(v[i]).padStart(2, "0")));
+  if (d === 0 && timer) clearInterval(timer);
 }
-setInterval(tick,1000);tick();
+tick();
+if (target > Date.now()) timer = setInterval(tick, 1000);
 
 // Scroll reveal
 const reveals=document.querySelectorAll(".reveal");
